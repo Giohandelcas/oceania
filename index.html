@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oceánica · Cuidado Capilar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #ffffff;
+            color: #0f2e33;
+            line-height: 1.5;
+        }
+
+        /* Variables modernas */
+        :root {
+            --deep-teal: #116A7B;
+            --soft-aqua: #7EC8D3;
+            --coral-sand: #F8C7A2;
+            --cream: #FFF9F0;
+            --warm-sand: #F5E6D3;
+            --dark-teal: #0A4D5C;
+        }
+
+        /* Tipografía moderna */
+        h1, h2, h3 {
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        /* Navegación moderna */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 4rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(17, 106, 123, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 300;
+            background: linear-gradient(135deg, var(--deep-teal), var(--soft-aqua));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-teal);
+            font-weight: 400;
+            font-size: 1rem;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--coral-sand);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero moderno */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #FFF9F0 0%, #E8F3F1 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 2rem;
+        }
+
+        .hero::before {
+            content: '🌊';
+            position: absolute;
+            font-size: 20rem;
+            opacity: 0.1;
+            right: -5rem;
+            bottom: -5rem;
+            transform: rotate(15deg);
+        }
+
+        .hero::after {
+            content: '🌴';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.1;
+            left: -3rem;
+            top: -3rem;
+            transform: rotate(-10deg);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: var(--deep-teal);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 300;
+            color: var(--dark-teal);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-style: italic;
+            color: var(--deep-teal);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #2d5f6b;
+            max-width: 600px;
+            margin: 2rem auto;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--deep-teal);
+            color: white;
+            box-shadow: 0 10px 20px -5px rgba(17, 106, 123, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-teal);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px -5px rgba(17, 106, 123, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--deep-teal);
+            border: 1px solid var(--deep-teal);
+        }
+
+        .btn-outline:hover {
+            background: rgba(17, 106, 123, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* Sección productos moderna */
+        .products-section {
+            padding: 6rem 4rem;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--soft-aqua);
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--dark-teal);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--cream);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 40px -15px rgba(17, 106, 123, 0.3);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--coral-sand);
+            color: var(--dark-teal);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            z-index: 2;
+        }
+
+        .product-image {
+            height: 300px;
+            background: linear-gradient(135deg, #E8F3F1, #D4E9E7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            filter: blur(40px);
+        }
+
+        .product-image span {
+            font-size: 8rem;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
+            transform: rotate(-5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image span {
+            transform: rotate(0deg) scale(1.1);
+        }
+
+        .product-info {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .product-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--soft-aqua);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--deep-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-desc {
+            color: #5a7a82;
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .product-volume {
+            display: inline-block;
+            background: white;
+            padding: 0.3rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            color: var(--dark-teal);
+            margin-top: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Filosofía moderna */
+        .philosophy {
+            background: linear-gradient(135deg, #0F2E33 0%, #1A4E5A 100%);
+            color: white;
+            padding: 6rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .philosophy::before {
+            content: '🌊🌴';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.1;
+            right: -2rem;
+            bottom: -2rem;
+            transform: rotate(10deg);
+        }
+
+        .philosophy-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .philosophy-text .subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--coral-sand);
+            margin-bottom: 1rem;
+        }
+
+        .philosophy-text h2 {
+            font-size: 4rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .philosophy-text h2 span {
+            color: var(--coral-sand);
+            font-style: italic;
+        }
+
+        .philosophy-description {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .pillar {
+            border-left: 2px solid var(--coral-sand);
+            padding-left: 1.5rem;
+        }
+
+        .pillar h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+            color: var(--coral-sand);
+        }
+
+        .pillar p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .philosophy-image {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .philosophy-image span {
+            font-size: 12rem;
+            filter: drop-shadow(0 20px 20px rgba(0,0,0,0.2));
+        }
+
+        /* Contacto moderno */
+        .contact {
+            padding: 6rem 4rem;
+            background: white;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h3 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--dark-teal);
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            color: #5a7a82;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .contact-card {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-card span {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card .handle {
+            font-size: 1.3rem;
+            color: var(--deep-teal);
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        /* Footer moderno */
+        footer {
+            background: var(--dark-teal);
+            color: white;
+            padding: 3rem 4rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--coral-sand);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 2rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .philosophy-container {
+                grid-template-columns: 1fr;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .products-section {
+                padding: 4rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <nav>
+        <div class="logo">OCEÁNICA</div>
+        <div class="nav-links">
+            <a href="#">Inicio</a>
+            <a href="#">Productos</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section Moderno -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle">CUIDADO CAPILAR</div>
+            <h1>Inspirada en el mar,<br><span>diseñada para ti</span></h1>
+            <p>Productos naturales que nutren tu cabello con la esencia del Caribe. Ingredientes puros, resultados extraordinarios.</p>
+            <div class="btn-group">
+                <a href="#" class="btn btn-primary">Ver productos</a>
+                <a href="#" class="btn btn-outline">Nuestra historia</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section class="products-section">
+        <div class="section-header">
+            <div class="section-tag">ESENCIA CARIBEÑA</div>
+            <h2>Nuestros Productos</h2>
+        </div>
+        
+        <div class="product-grid">
+            <!-- Shampoo Sunset Mist -->
+            <div class="product-card">
+                <div class="product-badge">500ml</div>
+                <div class="product-image">
+                    <span>🌊</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">SHAMPOO</div>
+                    <h3>Sunset Mist</h3>
+                    <p class="product-desc">Limpieza profunda con extractos marinos</p>
+                    <div class="product-volume">500ml</div>
+                </div>
+            </div>
+
+            <!-- Crema Oasis Mask -->
+            <div class="product-card">
+                <div class="product-badge">500ml</div>
+                <div class="product-image">
+                    <span>🥥</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">CREMA</div>
+                    <h3>Oasis Mask</h3>
+                    <p class="product-desc">Hidratación intensa con protección UV</p>
+                    <div class="product-volume">500ml</div>
+                </div>
+            </div>
+
+            <!-- Aceite Sevens Oils -->
+            <div class="product-card">
+                <div class="product-badge">60ml</div>
+                <div class="product-image">
+                    <span>💧</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">ACEITE</div>
+                    <h3>Sevens Oils</h3>
+                    <p class="product-desc">Argan · Coco · Murumuru</p>
+                    <div class="product-volume">60ml</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filosofía -->
+    <section class="philosophy">
+        <div class="philosophy-container">
+            <div class="philosophy-text">
+                <div class="subtitle">NUESTRA FILOSOFÍA</div>
+                <h2>Nacimos del <span>Caribe</span></h2>
+                <p class="philosophy-description">
+                    Oceánica nace de la pasión por el cuidado capilar y la belleza natural del Caribe. 
+                    Cada producto está formulado con ingredientes cuidadosamente seleccionados para 
+                    ofrecer resultados visibles desde la primera aplicación.
+                </p>
+                <div class="pillars-grid">
+                    <div class="pillar">
+                        <h3>Esencia Marina</h3>
+                        <p>Formulados con ingredientes inspirados en el mar Caribe para nutrir tu cabello en profundidad.</p>
+                    </div>
+                    <div class="pillar">
+                        <h3>Ingredientes Naturales</h3>
+                        <p>Aceites esenciales y extractos botánicos seleccionados por su pureza y efectividad.</p>
+                    </div>
+                    <div class="pillar">
+                        <h3>Cruelty Free</h3>
+                        <p>Comprometidos con el bienestar animal. Ninguno de nuestros productos es testado en animales.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="philosophy-image">
+                <span>🌊🌴</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact">
+        <div class="contact-container">
+            <h3>¿Lista para transformar tu cabello?</h3>
+            <p>Escríbenos y descubre qué producto es perfecto para ti</p>
+            
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <span>📷</span>
+                    <div class="handle">@oceanica_beauty</div>
+                </div>
+                <div class="contact-card">
+                    <span>✉️</span>
+                    <div class="handle">hola@oceanica.com</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">OCEÁNICA</div>
+        <div class="footer-links">
+            <a href="#">Inicio</a>
+            <a href="#">Productos</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Contacto</a>
+        </div>
+        <div class="copyright">
+            © 2026 Oceánica Cuidado Capilar. Todos los derechos reservados.
+        </div>
+    </footer>
+</body>
+</html>
